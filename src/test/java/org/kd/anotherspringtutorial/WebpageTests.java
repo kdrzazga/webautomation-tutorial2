@@ -2,7 +2,7 @@ package org.kd.anotherspringtutorial;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.TestWatcher;
 import org.kd.anotherspringtutorial.pages.CheckboxesPage;
 import org.kd.anotherspringtutorial.pages.TheInternetPage;
@@ -13,7 +13,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @SpringBootTest
-public class WebpageTest implements TestWatcher {
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+public class WebpageTests implements TestWatcher {
 
     @Autowired
     private TheInternetPage theInternetPage;
@@ -35,13 +36,8 @@ public class WebpageTest implements TestWatcher {
 
     @AfterAll
     public static void after() {
-        Logger logger = Logger.getLogger(WebpageTest.class.getSimpleName());
+        Logger logger = Logger.getLogger(WebpageTests.class.getSimpleName());
         logger.log(Level.INFO, "Finished Test suite");
     }
 
-    @Override
-    public void testSuccessful(ExtensionContext context) {
-        Logger logger = Logger.getLogger(WebpageTest.class.getSimpleName());
-        logger.log(Level.INFO, "Test PASSED");
-    }
 }
