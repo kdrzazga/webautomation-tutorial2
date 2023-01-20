@@ -6,10 +6,12 @@ import org.kd.anotherspringtutorial.config.ProfileManager;
 import org.kd.anotherspringtutorial.utils.report.Report;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.ComponentScan;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
 @SpringBootTest
+@ComponentScan(basePackages = {"org.kd.anotherspringtutorial"})
 class AnotherSpringTutorialApplicationTests {
 
 	@Autowired

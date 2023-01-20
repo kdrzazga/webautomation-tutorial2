@@ -1,4 +1,4 @@
-package org.kd.anotherspringtutorial;
+package org.kd.anotherspringtutorial.ui;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
