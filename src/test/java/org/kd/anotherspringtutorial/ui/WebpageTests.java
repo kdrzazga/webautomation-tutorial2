@@ -3,7 +3,9 @@ package org.kd.anotherspringtutorial.ui;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.TestWatcher;
+import org.kd.anotherspringtutorial.common.TestWatcherStats;
 import org.kd.anotherspringtutorial.pages.CheckboxesPage;
 import org.kd.anotherspringtutorial.pages.TheInternetPage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import java.util.logging.Logger;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@ExtendWith(TestWatcherStats.class)
 public class WebpageTests implements TestWatcher {
 
     @Autowired

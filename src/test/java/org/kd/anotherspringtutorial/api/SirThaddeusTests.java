@@ -6,7 +6,7 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.kd.anotherspringtutorial.api.helpers.SirThaddeusTestWatcher;
+import org.kd.anotherspringtutorial.common.TestWatcherStats;
 import org.kd.anotherspringtutorial.utils.report.Report;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,7 +16,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 @SpringBootTest
-@ExtendWith(SirThaddeusTestWatcher.class)
+@ExtendWith(TestWatcherStats.class)
 public class SirThaddeusTests {
 
     @Autowired

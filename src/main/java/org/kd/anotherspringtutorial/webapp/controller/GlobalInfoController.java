@@ -1,6 +1,6 @@
 package org.kd.anotherspringtutorial.webapp.controller;
 
-import org.kd.anotherspringtutorial.webapp.common.GlobalInfo;
+import org.kd.anotherspringtutorial.webapp.model.GlobalInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

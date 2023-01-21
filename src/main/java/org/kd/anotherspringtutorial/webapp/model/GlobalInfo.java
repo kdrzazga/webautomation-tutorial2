@@ -1,4 +1,4 @@
-package org.kd.anotherspringtutorial.webapp.common;
+package org.kd.anotherspringtutorial.webapp.model;
 
 import lombok.Getter;
 import org.springframework.stereotype.Component;

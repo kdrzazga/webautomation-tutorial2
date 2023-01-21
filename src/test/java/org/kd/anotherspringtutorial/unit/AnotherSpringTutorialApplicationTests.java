@@ -1,4 +1,4 @@
-package org.kd.anotherspringtutorial;
+package org.kd.anotherspringtutorial.unit;
 
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;

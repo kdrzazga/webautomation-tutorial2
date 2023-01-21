@@ -1,4 +1,4 @@
-package org.kd.anotherspringtutorial.api.helpers;
+package org.kd.anotherspringtutorial.common;
 
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -8,9 +8,9 @@ import org.kd.anotherspringtutorial.utils.report.Stats;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class SirThaddeusTestWatcher implements TestWatcher, AfterAllCallback {
+public class TestWatcherStats implements TestWatcher, AfterAllCallback {
 
-    private final Logger logger = Logger.getLogger(SirThaddeusTestWatcher.class.getSimpleName());
+    private final Logger logger = Logger.getLogger(TestWatcherStats.class.getSimpleName());
 
     @Override
     public void testSuccessful(ExtensionContext context) {

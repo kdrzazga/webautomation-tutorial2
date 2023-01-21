@@ -1,6 +1,6 @@
 package org.kd.anotherspringtutorial.webapp.controller;
 
-import org.kd.anotherspringtutorial.webapp.common.SirThaddeus;
+import org.kd.anotherspringtutorial.webapp.model.SirThaddeus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
