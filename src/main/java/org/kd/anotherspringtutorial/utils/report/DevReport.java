@@ -10,8 +10,12 @@ public class DevReport extends AbstractReport {
     @Override
     public String generate() {
         StringBuilder builder = new StringBuilder();
-        builder.append("Report for environment: " + this.reportEnv() + "\n");
-        builder.append("Unit tests complete " + this.unitTestCount);
+        builder.append("Report for environment: ")
+                .append(this.reportEnv()).append("\n");
+
+        builder.append("Unit tests complete ")
+                .append(this.unitTestCount);
+
         return builder.toString();
     }
 }

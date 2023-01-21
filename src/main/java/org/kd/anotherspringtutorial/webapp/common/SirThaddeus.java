@@ -40,6 +40,6 @@ public class SirThaddeus {
     }
 
     public String readAll() {
-        return lines.stream().collect(Collectors.joining("\n"));
+        return String.join("\n", lines);
     }
 }

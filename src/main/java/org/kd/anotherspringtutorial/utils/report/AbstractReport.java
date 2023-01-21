@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 abstract class AbstractReport implements Report {
 
     protected int unitTestCount = 4;
+
     @Autowired
     private ProfileManager profileManager;
 
@@ -13,4 +14,5 @@ abstract class AbstractReport implements Report {
     public String reportEnv() {
         return "Current environment is " + profileManager.getActiveProfiles();
     }
+
 }

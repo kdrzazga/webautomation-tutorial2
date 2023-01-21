@@ -17,10 +17,11 @@ public class QaReport extends AbstractReport {
     @Override
     public String generate() {
         StringBuilder builder = new StringBuilder();
-        builder.append("Report for environment: " + this.reportEnv() + "\n");
-        builder.append("Unit tests complete " + this.unitTestCount + "\n");
-        builder.append("System Integration tests complete " + this.systemIntTestCount + "\n");
-        builder.append("System tests complete " + this.systemTestCount + "\n");
+        builder.append("Report for environment: ").append(this.reportEnv()).append("\n").append("Number of PASSED tests: ").append(Stats.passedTcCount).append("Number of FAILED tests: ").append(Stats.failedTcCount);
+
+        builder.append("Unit tests complete ").append(this.unitTestCount).append("\n");
+        builder.append("System Integration tests complete ").append(this.systemIntTestCount).append("\n");
+        builder.append("System tests complete ").append(this.systemTestCount).append("\n");
 
         return builder.toString();
     }
