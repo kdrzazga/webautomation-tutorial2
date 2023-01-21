@@ -1,6 +1,6 @@
 package org.kd.anotherspringtutorial.webapp.controller;
 
-import org.kd.anotherspringtutorial.webapp.model.SirThaddeus;
+import org.kd.anotherspringtutorial.webapp.model.SirThaddeusText;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -15,12 +15,12 @@ import java.util.logging.Logger;
 @RestController
 public class SirThaddeusController {
 
-    private final SirThaddeus sirThaddeus;
+    private final SirThaddeusText sirThaddeusText;
     private final SirThaddeusControllerHelper helper;
 
     @Autowired
-    public SirThaddeusController(SirThaddeus sirThaddeus, SirThaddeusControllerHelper helper) {
-        this.sirThaddeus = sirThaddeus;
+    public SirThaddeusController(SirThaddeusText sirThaddeusText, SirThaddeusControllerHelper helper) {
+        this.sirThaddeusText = sirThaddeusText;
         this.helper = helper;
     }
 
@@ -29,7 +29,7 @@ public class SirThaddeusController {
     @GetMapping(path = "/read")
     public String readAll() {
         logger.log(Level.INFO, "Full text requested");
-        return sirThaddeus.readAll().replaceAll("\n", "<BR/>");
+        return sirThaddeusText.readAll().replaceAll("\n", "<BR/>");
     }
 
     @GetMapping(path = "/read/{index}")
@@ -40,7 +40,7 @@ public class SirThaddeusController {
 
         try {
             int i = Integer.parseInt(index);
-            body = sirThaddeus.read(i);
+            body = sirThaddeusText.read(i);
             status = HttpStatus.OK;
 
             logger.log(Level.INFO, "Read line [" + index + "]: " + body);

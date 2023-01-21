@@ -13,7 +13,8 @@ public class AnotherSpringTutorialApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context =
                 SpringApplication.run(AnotherSpringTutorialApplication.class, args);
-        Logger logger = Logger.getLogger(AnotherSpringTutorialApplication.class.getSimpleName());
+
+        var logger = Logger.getLogger(AnotherSpringTutorialApplication.class.getSimpleName());
         logger.log(Level.INFO, "context: " + context);
         logger.log(Level.INFO, "SERVER STARTED");
         logger.log(Level.INFO, "http://localhost:8080/");

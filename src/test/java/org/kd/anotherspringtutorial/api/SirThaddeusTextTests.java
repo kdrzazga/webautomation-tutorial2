@@ -1,7 +1,6 @@
 package org.kd.anotherspringtutorial.api;
 
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -17,14 +16,14 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 @SpringBootTest
 @ExtendWith(TestWatcherStats.class)
-public class SirThaddeusTests {
+public class SirThaddeusTextTests {
 
     @Autowired
     private Report report;
 
     @Test
     public void testFirstLine() {
-        Response response = given().get("/read/0")
+        var response = given().get("/read/0")
                 .then()
                 .extract().response();
 
@@ -34,7 +33,7 @@ public class SirThaddeusTests {
 
     @Test
     public void testSecondLine() {
-        Response response = given().get("/read/1")
+        var response = given().get("/read/1")
                 .then()
                 .extract().response();
 
@@ -44,7 +43,7 @@ public class SirThaddeusTests {
 
     @Test
     public void testNegative() {
-        Response response = given().get("/read/B@d_reQU3S7")
+        var response = given().get("/read/B@d_reQU3S7")
                 .then()
                 .extract().response();
 

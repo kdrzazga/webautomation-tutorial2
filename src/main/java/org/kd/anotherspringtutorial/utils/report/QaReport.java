@@ -16,7 +16,7 @@ public class QaReport extends AbstractReport {
 
     @Override
     public String generate() {
-        StringBuilder builder = new StringBuilder();
+        var builder = new StringBuilder();
         builder.append("Report for environment: ").append(this.reportEnv()).append("\n").append("Number of PASSED tests: ").append(Stats.passedTcCount).append("Number of FAILED tests: ").append(Stats.failedTcCount);
 
         builder.append("Unit tests complete ").append(this.unitTestCount).append("\n");

@@ -39,7 +39,7 @@ public class WebpageTests implements TestWatcher {
 
     @AfterAll
     public static void after() {
-        Logger logger = Logger.getLogger(WebpageTests.class.getSimpleName());
+        var logger = Logger.getLogger(WebpageTests.class.getSimpleName());
         logger.log(Level.INFO, "Finished Test suite");
     }
 

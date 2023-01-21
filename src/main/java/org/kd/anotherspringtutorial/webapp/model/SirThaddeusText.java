@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class SirThaddeus {
+public class SirThaddeusText {
     private final List<String> lines = new ArrayList<>();
 
-    public SirThaddeus() {
+    public SirThaddeusText() {
         lines.add("O Lithuania, my country, thou");
         lines.add("Art like good health; I never knew till now");
         lines.add("How precious, till I lost thee. Now I see");
