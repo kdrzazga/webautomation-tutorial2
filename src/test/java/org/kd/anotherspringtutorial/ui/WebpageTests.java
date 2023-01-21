@@ -1,23 +1,18 @@
 package org.kd.anotherspringtutorial.ui;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.api.extension.TestWatcher;
 import org.kd.anotherspringtutorial.common.TestWatcherStats;
 import org.kd.anotherspringtutorial.pages.CheckboxesPage;
 import org.kd.anotherspringtutorial.pages.TheInternetPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @ExtendWith(TestWatcherStats.class)
-public class WebpageTests implements TestWatcher {
+public class WebpageTests extends BaseUiTest {
 
     @Autowired
     private TheInternetPage theInternetPage;
@@ -35,12 +30,8 @@ public class WebpageTests implements TestWatcher {
     public void testCheckboxesPage() {
         checkboxesPage.navigateIndirect();
         checkboxesPage.checkPageLoaded();
-    }
 
-    @AfterAll
-    public static void after() {
-        var logger = Logger.getLogger(WebpageTests.class.getSimpleName());
-        logger.log(Level.INFO, "Finished Test suite");
+        this.takeScreenshot("checkboxes");
     }
 
 }
