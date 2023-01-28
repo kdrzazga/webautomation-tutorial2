@@ -48,7 +48,8 @@ public class SirThaddeusTextTests {
                 .extract().response();
 
         Assertions.assertEquals(HttpStatus.OK.value(), response.statusCode());
-        Assertions.assertEquals(ContentType.TEXT.getContentTypeStrings()[0], response.headers().get("Content-Type").getValue());
+        Assertions.assertEquals(ContentType.TEXT.getContentTypeStrings()[0]
+                , response.headers().get("Content-Type").getValue());
     }
 
     @Test
