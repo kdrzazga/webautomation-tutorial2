@@ -27,3 +27,6 @@ hs_err_pid*
 
 #other
 .idea/
+target/classes/*
+
+!chromedriver.exe

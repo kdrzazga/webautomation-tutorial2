@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.kd.anotherspringtutorial.common.TestWatcherStats;
-import org.kd.anotherspringtutorial.pages.CheckboxesPage;
-import org.kd.anotherspringtutorial.pages.TheInternetPage;
+import org.kd.anotherspringtutorial.test.pages.CheckboxesPage;
+import org.kd.anotherspringtutorial.test.pages.TheInternetPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 

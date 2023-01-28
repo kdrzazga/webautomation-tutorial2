@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.when;
 import static org.hamcrest.Matchers.containsString;
 
 @SpringBootTest
-public class GlobalInfoTests {
+public class GlobalInfoTests extends BaseApiTest{
 
     @Test
     public void testHello() {

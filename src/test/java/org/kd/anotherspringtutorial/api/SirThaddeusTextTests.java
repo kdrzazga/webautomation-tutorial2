@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.kd.anotherspringtutorial.common.TestWatcherStats;
-import org.kd.anotherspringtutorial.utils.report.Report;
+import org.kd.anotherspringtutorial.test.utils.data.UsersData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
@@ -16,14 +16,19 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 @SpringBootTest
 @ExtendWith(TestWatcherStats.class)
-public class SirThaddeusTextTests {
+public class SirThaddeusTextTests extends BaseApiTest{
 
     @Autowired
-    private Report report;
+    private UsersData usersData;
 
     @Test
     public void testFirstLine() {
-        var response = given().get("/read/0")
+        var userName = "admin";
+
+        var response = given().auth()
+                .basic(userName, usersData.getPassword(userName))
+                .when()
+                .get("/read/0")
                 .then()
                 .extract().response();
 
@@ -33,17 +38,28 @@ public class SirThaddeusTextTests {
 
     @Test
     public void testSecondLine() {
-        var response = given().get("/read/1")
+        var userName = "admin";
+
+        var response = given().auth()
+                .basic(userName, usersData.getPassword(userName))
+                .when()
+                .get("/read/1")
                 .then()
                 .extract().response();
 
         Assertions.assertEquals(HttpStatus.OK.value(), response.statusCode());
-        Assertions.assertEquals(ContentType.TEXT.getContentTypeStrings()[0], response.headers().get("Content-Type").getValue());
+        Assertions.assertEquals(ContentType.TEXT.getContentTypeStrings()[0]
+                , response.headers().get("Content-Type").getValue());
     }
 
     @Test
     public void testNegative() {
-        var response = given().get("/read/B@d_reQU3S7")
+        var userName = "admin";
+
+        var response = given().auth()
+                .basic(userName, usersData.getPassword(userName))
+                .when()
+                .get("/read/B@d_reQU3S7")
                 .then()
                 .extract().response();
 
@@ -53,7 +69,7 @@ public class SirThaddeusTextTests {
     }
 
     @Test
-    public void testPurposelyFailed(){
+    public void testPurposelyFailed() {
         Assertions.fail("Test failed on purpose, for statistics");
     }
 }
