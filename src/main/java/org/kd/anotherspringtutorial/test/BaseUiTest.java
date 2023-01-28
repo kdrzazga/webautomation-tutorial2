@@ -1,7 +1,7 @@
-package org.kd.anotherspringtutorial.ui;
+package org.kd.anotherspringtutorial.test;
 
 import com.codeborne.selenide.WebDriverRunner;
-import org.kd.anotherspringtutorial.common.utils.Utils;
+import org.kd.anotherspringtutorial.test.utils.Utils;
 import org.openqa.selenium.TakesScreenshot;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;

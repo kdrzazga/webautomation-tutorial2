@@ -1,9 +1,8 @@
-package org.kd.anotherspringtutorial.common.utils;
+package org.kd.anotherspringtutorial.test.utils;
 
 import org.junit.jupiter.api.extension.ExtensionContext;
-import org.kd.anotherspringtutorial.api.BaseApiTest;
-import org.kd.anotherspringtutorial.common.TestType;
-import org.kd.anotherspringtutorial.ui.BaseUiTest;
+import org.kd.anotherspringtutorial.test.BaseApiTest;
+import org.kd.anotherspringtutorial.test.BaseUiTest;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
