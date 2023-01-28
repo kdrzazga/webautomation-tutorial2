@@ -34,7 +34,7 @@ class AnotherSpringTutorialApplicationTests {
 	public void testReport(){
 
 		String generatedReport = report.generate();
-		//assertThat(generatedReport, Matchers.notNullValue());
+		assertThat(generatedReport, Matchers.notNullValue());
 
 		System.out.println("Generated report:\n" + generatedReport);
 	}

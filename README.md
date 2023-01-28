@@ -12,3 +12,4 @@ Main features:
 Notes:
 * Source directory **webapp** contains backend application tested with API tests under test directory **api**
 * Test directory **ui** contains simple examples of tests for website https://the-internet.herokuapp.com/
+* Pages URLs are stored in properties file

@@ -10,7 +10,7 @@
     </parent>
     <groupId>org.kd</groupId>
     <artifactId>webautomation-tutorial2</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.8.0-SNAPSHOT</version>
     <name>webautomation-tutorial2</name>
     <description>Demo project for Spring Boot Profiles</description>
     <properties>

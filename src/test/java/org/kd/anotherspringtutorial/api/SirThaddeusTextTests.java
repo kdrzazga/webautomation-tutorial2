@@ -16,7 +16,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 @SpringBootTest
 @ExtendWith(TestWatcherStats.class)
-public class SirThaddeusTextTests {
+public class SirThaddeusTextTests extends BaseApiTest{
 
     @Autowired
     private UsersData usersData;

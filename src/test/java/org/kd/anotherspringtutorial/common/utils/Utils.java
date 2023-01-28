@@ -1,15 +1,16 @@
 package org.kd.anotherspringtutorial.common.utils;
 
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.kd.anotherspringtutorial.api.BaseApiTest;
+import org.kd.anotherspringtutorial.common.TestType;
+import org.kd.anotherspringtutorial.ui.BaseUiTest;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Optional;
-import java.util.Properties;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -59,5 +60,14 @@ public class Utils {
         String path = readProperty("screenshots.dir");
         logger.log(Level.INFO, "Deleting content of directory: " + path);
         clearDirectory(path);
+    }
+
+    public static TestType getTestType(ExtensionContext extensionContext) {
+        Optional<Class<?>> testSuperClazz = extensionContext.getTestClass();
+
+        if (testSuperClazz.isEmpty()) return TestType.UNCLASSIFED;
+
+        Map<Class<?>, TestType> classTestTypeMap = Map.of(BaseUiTest.class, TestType.UI, BaseApiTest.class, TestType.API);
+        return classTestTypeMap.getOrDefault(testSuperClazz.get().getSuperclass(), TestType.UNCLASSIFED);
     }
 }

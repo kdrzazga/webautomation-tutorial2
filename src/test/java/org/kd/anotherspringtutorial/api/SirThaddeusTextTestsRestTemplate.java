@@ -23,7 +23,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 @SpringBootTest
 @ExtendWith(TestWatcherStats.class)
-public class SirThaddeusTextTestsRestTemplate {
+public class SirThaddeusTextTestsRestTemplate extends BaseApiTest{
 
     @Value("${port}")
     private String port;
