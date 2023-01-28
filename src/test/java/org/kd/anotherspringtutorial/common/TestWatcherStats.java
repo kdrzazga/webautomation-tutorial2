@@ -5,7 +5,7 @@ import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
 import org.kd.anotherspringtutorial.common.utils.Utils;
-import org.kd.anotherspringtutorial.utils.report.Stats;
+import org.kd.anotherspringtutorial.test.utils.report.Stats;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

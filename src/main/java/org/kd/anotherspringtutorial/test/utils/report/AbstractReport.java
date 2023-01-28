@@ -1,6 +1,6 @@
-package org.kd.anotherspringtutorial.utils.report;
+package org.kd.anotherspringtutorial.test.utils.report;
 
-import org.kd.anotherspringtutorial.config.ProfileManager;
+import org.kd.anotherspringtutorial.test.config.ProfileManager;
 import org.springframework.beans.factory.annotation.Autowired;
 
 abstract class AbstractReport implements Report {

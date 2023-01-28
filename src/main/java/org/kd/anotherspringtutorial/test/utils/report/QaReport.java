@@ -1,4 +1,4 @@
-package org.kd.anotherspringtutorial.utils.report;
+package org.kd.anotherspringtutorial.test.utils.report;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;

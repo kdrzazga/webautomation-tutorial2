@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.kd.anotherspringtutorial.common.TestWatcherStats;
-import org.kd.anotherspringtutorial.utils.report.Report;
+import org.kd.anotherspringtutorial.test.utils.report.Report;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;

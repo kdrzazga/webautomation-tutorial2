@@ -1,4 +1,4 @@
-package org.kd.anotherspringtutorial.util.encrypt;
+package org.kd.anotherspringtutorial.test.utils.encrypt;
 
 public interface PasswordEncryptor {
 

@@ -1,4 +1,4 @@
-package org.kd.anotherspringtutorial.pages;
+package org.kd.anotherspringtutorial.test.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;

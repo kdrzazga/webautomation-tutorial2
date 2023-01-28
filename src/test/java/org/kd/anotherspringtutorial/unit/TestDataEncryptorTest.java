@@ -2,10 +2,9 @@ package org.kd.anotherspringtutorial.unit;
 
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
-import org.kd.anotherspringtutorial.util.encrypt.TestDataEncryptor;
+import org.kd.anotherspringtutorial.test.utils.encrypt.TestDataEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.ComponentScan;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,7 +12,6 @@ import java.util.logging.Logger;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 @SpringBootTest
-@ComponentScan(basePackages = {"org.kd.anotherspringtutorial"})
 public class TestDataEncryptorTest {
 
     @Autowired

@@ -1,4 +1,4 @@
-package org.kd.anotherspringtutorial.config;
+package org.kd.anotherspringtutorial.test.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

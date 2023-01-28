@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.kd.anotherspringtutorial.common.TestWatcherStats;
-import org.kd.anotherspringtutorial.utils.report.Report;
+import org.kd.anotherspringtutorial.test.utils.report.Report;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
@@ -33,7 +33,10 @@ public class SirThaddeusTextTests {
 
     @Test
     public void testSecondLine() {
-        var response = given().get("/read/1")
+        var response = given().auth()
+                .basic("admin","admin")
+                .when()
+                .get("/read/1")
                 .then()
                 .extract().response();
 

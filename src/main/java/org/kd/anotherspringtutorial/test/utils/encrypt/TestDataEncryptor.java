@@ -1,17 +1,19 @@
-package org.kd.anotherspringtutorial.util.encrypt;
+package org.kd.anotherspringtutorial.test.utils.encrypt;
 
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class TestDataEncryptor implements PasswordEncryptor {
 
-    private final String encryptionKey = "ZV3Fx1reAVWKD8GBA7CqVMNADQSYqNb7EccxTzcC";
+    private String encryptionKey;
     private final StandardPBEStringEncryptor encryptor;
 
-    public TestDataEncryptor() {
-        encryptor = new StandardPBEStringEncryptor();
-        encryptor.setPassword(encryptionKey);
+    public TestDataEncryptor(@Value("${security.key}") String encryptionKey) {
+        this.encryptionKey = encryptionKey;
+        this.encryptor = new StandardPBEStringEncryptor();
+        this.encryptor.setPassword(encryptionKey);
     }
 
     @Override

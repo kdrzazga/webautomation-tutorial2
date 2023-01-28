@@ -1,4 +1,4 @@
-package org.kd.anotherspringtutorial.pages;
+package org.kd.anotherspringtutorial.test.pages;
 
 public interface Page {
     void navigate();

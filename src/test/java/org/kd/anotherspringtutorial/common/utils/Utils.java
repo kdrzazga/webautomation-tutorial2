@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Optional;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -37,12 +38,15 @@ public class Utils {
     }
 
     public static void clearDirectory(String path) {
-        File dir = new File(path);
+        var dir = new File(path);
 
-        String[] entries = dir.list();
-        for (String s : entries) {
-            File currentFile = new File(dir.getPath(), s);
-            currentFile.delete();
+        Optional<String[]> entries = Optional.ofNullable(dir.list());
+
+        if (entries.isPresent()) {
+            for (String s : entries.get()) {
+                var currentFile = new File(dir.getPath(), s);
+                currentFile.delete();
+            }
         }
     }
 
