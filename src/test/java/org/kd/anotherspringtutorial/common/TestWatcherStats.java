@@ -6,7 +6,9 @@ import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
-import org.kd.anotherspringtutorial.common.utils.Utils;
+import org.kd.anotherspringtutorial.email.EmailSender;
+import org.kd.anotherspringtutorial.test.utils.TestType;
+import org.kd.anotherspringtutorial.test.utils.Utils;
 import org.kd.anotherspringtutorial.test.utils.report.Stats;
 
 import java.util.logging.Level;
@@ -15,9 +17,10 @@ import java.util.logging.Logger;
 public class TestWatcherStats implements TestWatcher, BeforeAllCallback, AfterAllCallback {
 
     private final Logger logger = Logger.getLogger(TestWatcherStats.class.getSimpleName());
+    private final EmailSender emailSender = new EmailSender();
 
     @Override
-    public void beforeAll(ExtensionContext extensionContext) throws Exception {
+    public void beforeAll(ExtensionContext extensionContext) {
         Utils.clearScreenshots();
         driverInit(Utils.getTestType(extensionContext));
     }
@@ -35,7 +38,7 @@ public class TestWatcherStats implements TestWatcher, BeforeAllCallback, AfterAl
     }
 
     @Override
-    public void afterAll(ExtensionContext extensionContext) throws Exception {
+    public void afterAll(ExtensionContext extensionContext) {
         logger.log(Level.INFO, "Test cases passed: " + Stats.getPassedTcCount() + ", failed: "
                 + Stats.getFailedTcCount());
         tearDown(Utils.getTestType(extensionContext));
@@ -53,6 +56,8 @@ public class TestWatcherStats implements TestWatcher, BeforeAllCallback, AfterAl
             WebDriverRunner.getWebDriver().close();
             WebDriverRunner.getWebDriver().quit();
         }
+
+        emailSender.sendReport(testType);
     }
 
     private static void setupBrowserParams() {

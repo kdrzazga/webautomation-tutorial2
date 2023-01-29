@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.kd.anotherspringtutorial.common.TestWatcherStats;
+import org.kd.anotherspringtutorial.test.BaseApiTest;
 import org.kd.anotherspringtutorial.test.utils.data.UsersData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,7 +17,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 @SpringBootTest
 @ExtendWith(TestWatcherStats.class)
-public class SirThaddeusTextTests extends BaseApiTest{
+public class SirThaddeusTextTests extends BaseApiTest {
 
     @Autowired
     private UsersData usersData;
