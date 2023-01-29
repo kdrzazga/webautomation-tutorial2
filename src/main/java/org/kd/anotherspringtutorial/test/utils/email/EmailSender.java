@@ -13,12 +13,12 @@ import java.util.logging.Logger;
 
 public class EmailSender {
 
-    private String smptHost = "smtp.mailosaur.net";
+    private final String smptHost = "smtp.mailosaur.net";
     //Email & SMS testing website is used https://mailosaur.com/
 
-    private int smptPort = 587;
+    private final int smptPort = 587;
 
-    private Logger logger = Logger.getLogger(EmailSender.class.getSimpleName());
+    private final Logger logger = Logger.getLogger(EmailSender.class.getSimpleName());
     private final EmailBuilder emailBuilder = new ReportEmailBuilder();
 
     public void sendReport(TestType testType) {
@@ -36,7 +36,7 @@ public class EmailSender {
                     logger.log(Level.SEVERE, "Error sending email: " + e.getMessage());
                 }
             });
-/*
+
             emailBuilder.createCCRecipients().forEach(r -> {
                 try {
                     message.addRecipients(Message.RecipientType.CC, r);
@@ -44,7 +44,7 @@ public class EmailSender {
                     logger.log(Level.SEVERE, "Error sending email: " + e.getMessage());
                 }
             });
-*/
+
             message.setSubject(emailBuilder.createEmailTitle(testType));
             message.setContent(createEmailBody());
 
