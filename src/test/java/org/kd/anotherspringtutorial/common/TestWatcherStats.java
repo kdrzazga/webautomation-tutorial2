@@ -6,7 +6,7 @@ import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
-import org.kd.anotherspringtutorial.email.EmailSender;
+import org.kd.anotherspringtutorial.test.utils.email.EmailSender;
 import org.kd.anotherspringtutorial.test.utils.TestType;
 import org.kd.anotherspringtutorial.test.utils.Utils;
 import org.kd.anotherspringtutorial.test.utils.report.Stats;
