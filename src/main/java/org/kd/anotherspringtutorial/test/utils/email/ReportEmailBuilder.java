@@ -30,7 +30,7 @@ public class ReportEmailBuilder implements EmailBuilder {
 
     @Override
     public String getSender() {
-        return "Automation Test Pack";
+        return "AutomationTestPack";
     }
 
     @Override

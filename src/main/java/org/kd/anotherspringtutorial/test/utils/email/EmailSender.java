@@ -22,13 +22,12 @@ public class EmailSender {
     private final EmailBuilder emailBuilder = new ReportEmailBuilder();
 
     public void sendReport(TestType testType) {
-        Session session = Session.getDefaultInstance(getEmailProps(), null);
+        var session = Session.getDefaultInstance(getEmailProps(), null);
 
         try {
-            MimeMessage message = new MimeMessage(session);
-            InternetAddress sender = new InternetAddress("AutomatedTests@test.org");
+            var message = new MimeMessage(session);
             message.setFrom(emailBuilder.getSender());
-            message.setSender(sender);
+            message.setSender(new InternetAddress(emailBuilder.getSender()));
 
             emailBuilder.createRecipients().forEach(r -> {
                 try {
@@ -37,7 +36,7 @@ public class EmailSender {
                     logger.log(Level.SEVERE, "Error sending email: " + e.getMessage());
                 }
             });
-
+/*
             emailBuilder.createCCRecipients().forEach(r -> {
                 try {
                     message.addRecipients(Message.RecipientType.CC, r);
@@ -45,7 +44,7 @@ public class EmailSender {
                     logger.log(Level.SEVERE, "Error sending email: " + e.getMessage());
                 }
             });
-
+*/
             message.setSubject(emailBuilder.createEmailTitle(testType));
             message.setContent(createEmailBody());
 
