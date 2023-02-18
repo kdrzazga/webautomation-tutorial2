@@ -17,7 +17,7 @@
         <java.version>17</java.version>
         <selenide.version>6.9.0</selenide.version>
         <lombok.version>1.18.20</lombok.version>
-        <rest-assured.version>3.3.0</rest-assured.version>
+        <rest-assured.version>3.0.0</rest-assured.version>
         <selenium-java.version>4.7.2</selenium-java.version>
         <jasypt.version>1.9.3</jasypt.version>
         <spring-security-test.version>5.7.4</spring-security-test.version>
