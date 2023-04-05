@@ -1,58 +1,54 @@
 pipeline {
     agent any
 
+    tools{
+        git 'Default'
+    }
+
+    triggers {
+        cron('15 0 * * *')
+    }
+
     stages {
-        stage('Checkout') {
+        stage('checkout'){
             steps {
-                echo off
-                echo Stage: Checkout
-                if exist WA2 rmdir /q /s WA2
-                mkdir WA2
-                cd WA2
-                git clone https://github.com/kdrzazga/webautomation-tutorial2.git
-                java --version
+                git 'https://github.com/kdrzazga/webautomation-tutorial2'
+            }
+            post {
+                always {
+                    echo 'Checkout finished.'
+                }
+                success {
+                    echo "Project checked out from GH"
+                }
             }
         }
-
-        stage('Build') {
+        stage('build') {
             steps {
-                echo off
-                echo Stage: Build
-                cd WA2\webautomation-tutorial2\
-                dir
-                git checkout adapting_pom
-                c:\maven\bin\mvn clean install -DskipTests
+                sh "mvn -Dmaven.test.failure.ignore=true clean compile"
+            }
+            post {
+                failure {
+                    echo "Build failed"
+                }
             }
         }
-
-        stage('Unit and UI Test') {
+        stage('test'){
             steps {
-                echo off
-                echo Stage: Unit and UI Test
-                cd WA2\webautomation-tutorial2\
-                echo "Running specified tests only"
-                c:\maven\bin\mvn test -Dtest=AnotherSpringTutorialApplicationTests,WebpageTests,TestDataEncryptorTest
-                echo ---------------------------------
+                sh "mvn -Dmaven.test.failure.ignore=true test"
+            }
+            post {
+                success {
+                    echo "Tests passed"
+                }
             }
         }
-
-        stage('pseudo-Deploy') {
+        stage('deploy'){
             steps {
-                echo off
-                echo Stage: pseudo-Deploy
-                cd WA2\webautomation-tutorial2\target
-                start /B java -jar webautomation-tutorial2-0.8.0-SNAPSHOT-jar-with-dependencies.jar
-            }
-        }
+                script {
+                    deploy
+                }
 
-        stage('API Tests') {
-            steps {
-                echo off
-                echo Stage: API Test
-                cd WA2\webautomation-tutorial2\
-                echo "Running specified tests only"
-                c:\maven\bin\mvn test -Dtest=GlobalInfoTests,SirThaddeusTextTests#testFirstLine,SirThaddeusTextTests#testSecondLine,SirThaddeusTextTests#testNegative
-                echo ---------------------------------
             }
         }
     }
