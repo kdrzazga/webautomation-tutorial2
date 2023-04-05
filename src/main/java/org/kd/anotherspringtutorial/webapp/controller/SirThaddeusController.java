@@ -1,14 +1,16 @@
 package org.kd.anotherspringtutorial.webapp.controller;
 
+import org.kd.anotherspringtutorial.AnotherSpringTutorialApplication;
 import org.kd.anotherspringtutorial.webapp.model.SirThaddeusText;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.time.Instant;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -50,9 +52,26 @@ public class SirThaddeusController {
             status = HttpStatus.BAD_REQUEST;
         }
 
-        return ResponseEntity.status(status)
-                .headers(headers)
-                .body(body);
+        headers.add("Set-Cookie", "author=Adam Mickiewicz");
+
+        ResponseEntity<String> response = null;
+        try {
+            response = ResponseEntity.status(status)
+                    .headers(headers)
+                    .location(new URI("http://localhost:" + AnotherSpringTutorialApplication.getServerPort()))
+                    .lastModified(Instant.now())
+                    .contentType(MediaType.TEXT_PLAIN)
+                    .body(body);
+        } catch (URISyntaxException e) {
+            logger.log(Level.INFO, "Wrong URI " + e.getMessage());
+            body = "";
+            status = HttpStatus.INTERNAL_SERVER_ERROR;
+
+            response = ResponseEntity.status(status)
+                    .body(body);
+        }
+
+        return response;
     }
 
 }
