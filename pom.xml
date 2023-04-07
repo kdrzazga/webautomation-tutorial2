@@ -28,6 +28,7 @@
         <feign-client.version>10.11</feign-client.version>
 
         <start-class>org.kd.anotherspringtutorial.AnotherSpringTutorialApplication</start-class>
+        <wiremock.version>2.27.2</wiremock.version>
     </properties>
     <dependencies>
         <dependency>
@@ -111,6 +112,16 @@
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-slf4j</artifactId>
             <version>${feign-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.tomakehurst</groupId>
+            <artifactId>wiremock</artifactId>
+            <version>${wiremock.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
         </dependency>
     </dependencies>
 

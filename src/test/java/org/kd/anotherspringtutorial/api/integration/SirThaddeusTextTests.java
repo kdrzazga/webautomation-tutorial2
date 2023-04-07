@@ -1,4 +1,4 @@
-package org.kd.anotherspringtutorial.api;
+package org.kd.anotherspringtutorial.api.integration;
 
 import io.restassured.http.ContentType;
 import org.hamcrest.Matchers;

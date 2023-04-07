@@ -1,4 +1,4 @@
-package org.kd.anotherspringtutorial.api;
+package org.kd.anotherspringtutorial.api.standalone;
 
 import feign.Feign;
 import feign.Logger;
@@ -28,14 +28,6 @@ public class AuthorsTests extends BaseApiTest {
     @Autowired
     private UsersData usersData;
 
-    private GlobalInfoClient feignClient = Feign.builder()
-                .client(new OkHttpClient())
-                .encoder(new Encoder.Default())
-                .decoder(new Decoder.Default())
-                .logger(new Slf4jLogger(AuthorsController.class))
-                .logLevel(Logger.Level.FULL)
-                .target(GlobalInfoClient.class, "http://localhost:8080/");
-
     @Test
     public void testFindAuthor() {
         var userName = "admin";
@@ -48,11 +40,6 @@ public class AuthorsTests extends BaseApiTest {
                 .extract().response();
 
         Assertions.assertEquals(response.body().prettyPrint(), "Homer");
-    }
-
-    @Test
-    public void testFindAuthorWithFeign() {
-        assertThat(feignClient.getInfo(), Matchers.containsStringIgnoringCase("hello"));
     }
 
 }

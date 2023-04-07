@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.Calendar;
 
 @Component
-public class SirThaddeusControllerHelper {
+class SirThaddeusControllerHelper {
     public HttpHeaders createDefaultHeaders() {
         var headers = new HttpHeaders();
         headers.add("Content-Type", "text/plain");
