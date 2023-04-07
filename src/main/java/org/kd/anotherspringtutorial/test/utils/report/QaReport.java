@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Profile("qa")
 @Component
-public class QaReport extends AbstractReport {
+public final class QaReport extends AbstractReport  implements Report{
 
     private int systemIntTestCount = 5;
     private int systemTestCount = 1;
@@ -14,7 +14,6 @@ public class QaReport extends AbstractReport {
         this.unitTestCount = 12;
     }
 
-    @Override
     public String generate() {
         var builder = new StringBuilder();
         builder.append("Report for environment: ").append(this.reportEnv()).append("\n").append("Number of PASSED tests: ").append(Stats.passedTcCount).append("Number of FAILED tests: ").append(Stats.failedTcCount);

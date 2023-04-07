@@ -5,9 +5,8 @@ import org.springframework.stereotype.Component;
 
 @Profile("dev")
 @Component
-public class DevReport extends AbstractReport {
+public final class DevReport extends AbstractReport  implements Report{
 
-    @Override
     public String generate() {
         var builder = new StringBuilder();
         builder.append("Report for environment: ")
