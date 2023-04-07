@@ -25,6 +25,8 @@
         <javaxMail.version>1.6.2</javaxMail.version>
         <commons-io.version>2.11.0</commons-io.version>
         <spring-boot.version>3.0.1</spring-boot.version>
+        <feign-client.version>10.11</feign-client.version>
+
         <start-class>org.kd.anotherspringtutorial.AnotherSpringTutorialApplication</start-class>
     </properties>
     <dependencies>
@@ -94,7 +96,21 @@
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
-            <version>2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-okhttp</artifactId>
+            <version>${feign-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-gson</artifactId>
+            <version>${feign-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-slf4j</artifactId>
+            <version>${feign-client.version}</version>
         </dependency>
     </dependencies>
 

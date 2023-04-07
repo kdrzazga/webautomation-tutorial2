@@ -52,7 +52,7 @@ public class SirThaddeusController {
             status = HttpStatus.BAD_REQUEST;
         }
 
-        headers.add("Set-Cookie", "author=Adam Mickiewicz");
+        headers.add("Set-Cookie", "author=" + helper.findAuthor());
 
         ResponseEntity<String> response = null;
         try {
