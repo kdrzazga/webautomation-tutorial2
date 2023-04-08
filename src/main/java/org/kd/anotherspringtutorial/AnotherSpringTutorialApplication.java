@@ -24,6 +24,8 @@ public class AnotherSpringTutorialApplication {
         logger.log(Level.INFO, "http://localhost:" + getServerPort() + "/read");
         logger.log(Level.INFO, "http://localhost:" + getServerPort() + "/read/4");
         logger.log(Level.INFO, "http://localhost:" + getServerPort() + "/read/b@d_r3que$t");
+        logger.log(Level.INFO, "Run authors microservice for the whole system to work" +
+                " (path: test/resources/microservices/authors-service-1.0-RELEASE.jar)");
     }
 
     public static int getServerPort() {

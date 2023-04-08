@@ -18,7 +18,7 @@ class SirThaddeusControllerHelper {
 
     public String findAuthor() {
         AuthorsClient authorsClient = Feign.builder()
-                .target(AuthorsClient.class, "http://localhost:8080/");
+                .target(AuthorsClient.class, "http://localhost:8981/");
 
         return authorsClient.findAuthor("Sir Thaddeus");
     }

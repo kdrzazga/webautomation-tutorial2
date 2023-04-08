@@ -11,7 +11,6 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.kd.anotherspringtutorial.test.BaseApiTest;
-import org.kd.anotherspringtutorial.webapp.controller.AuthorsController;
 import org.kd.anotherspringtutorial.webapp.controller.clients.GlobalInfoClient;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -38,7 +37,7 @@ public class GlobalInfoTests extends BaseApiTest {
             .client(new OkHttpClient())
             .encoder(new Encoder.Default())
             .decoder(new Decoder.Default())
-            .logger(new Slf4jLogger(AuthorsController.class))
+            .logger(new Slf4jLogger(GlobalInfoTests.class))
             .logLevel(Logger.Level.FULL)
             .target(GlobalInfoClient.class, "http://localhost:8080/");
 
