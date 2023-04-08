@@ -7,6 +7,7 @@ import org.kd.anotherspringtutorial.api.integration.SirThaddeusTextTests;
 import org.kd.anotherspringtutorial.test.BaseApiTest;
 import org.kd.anotherspringtutorial.test.utils.data.UsersData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 
@@ -21,19 +22,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class SirThaddeusTests extends BaseApiTest {
+
     @Autowired
     private UsersData usersData;
 
     private final Logger logger = Logger.getLogger(SirThaddeusTextTests.class.getSimpleName());
+    @Value("${service.authors.host}")
+    private String serviceAuthorsHost;
+    @Value("${service.authors.port}")
+    private String serviceAuthorsPort;
 
     @BeforeEach
     public void setup() {
+        logger.log(Level.INFO, "Service under test is hosted at " + this.serviceAuthorsHost + ":"
+                + this.serviceAuthorsPort);
+
         setupStub();
     }
 
     public void setupStub() {
-        configureFor("127.0.0.1", 8981);
-        stubFor(get(urlEqualTo("/author/Sir Thaddeus"))
+        configureFor("127.0.0.1", Integer.parseInt(serviceAuthorsPort));
+        stubFor(get(urlEqualTo("/author/Hobbit"))
                 .withHeader("Accept", matching("\\*\\/\\*"))
                 .willReturn(aResponse().
                         withStatus(200).
@@ -46,15 +55,15 @@ public class SirThaddeusTests extends BaseApiTest {
     public void testStub() {
         var userName = "admin";
 
-        var response = given().baseUri("http://localhost:8981")
+        var response = given().baseUri(serviceAuthorsHost + ":" + serviceAuthorsPort)
                 .auth().basic(userName, usersData.getPassword(userName))
-                .when().get("/author/Sir Thaddeus")
+                .when().get("/author/Hobbit")
                 .then().extract().response();
 
         logger.log(Level.INFO, "Response time: " + response.getTimeIn(TimeUnit.MILLISECONDS) + " ms");
 
         assertEquals(HttpStatus.OK.value(), response.statusCode());
-        assertEquals(response.body().prettyPrint(),"Mocked Adam Mickiewicz");
+        assertEquals(response.body().prettyPrint(), "Mocked Adam Mickiewicz");
     }
 
     @Test
