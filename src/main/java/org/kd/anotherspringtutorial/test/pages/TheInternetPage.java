@@ -24,6 +24,7 @@ public class TheInternetPage implements Page {
     private final Logger logger = Logger.getLogger(TheInternetPage.class.getSimpleName());
 
     public void navigate() {
+        logger.log(Level.INFO, "Navigating to " + url);
         Selenide.open(url);
     }
 

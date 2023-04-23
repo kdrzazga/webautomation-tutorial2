@@ -25,7 +25,10 @@
         <javaxMail.version>1.6.2</javaxMail.version>
         <commons-io.version>2.11.0</commons-io.version>
         <spring-boot.version>3.0.1</spring-boot.version>
+        <feign-client.version>10.11</feign-client.version>
+
         <start-class>org.kd.anotherspringtutorial.AnotherSpringTutorialApplication</start-class>
+        <wiremock.version>2.27.2</wiremock.version>
     </properties>
     <dependencies>
         <dependency>
@@ -90,6 +93,35 @@
             <groupId>org.jasypt</groupId>
             <artifactId>jasypt</artifactId>
             <version>1.9.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-okhttp</artifactId>
+            <version>${feign-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-gson</artifactId>
+            <version>${feign-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-slf4j</artifactId>
+            <version>${feign-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.tomakehurst</groupId>
+            <artifactId>wiremock</artifactId>
+            <version>${wiremock.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
         </dependency>
     </dependencies>
 
